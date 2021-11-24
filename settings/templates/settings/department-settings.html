@@ -1,0 +1,10 @@
+<h1>Department Settings</h1>
+<a href="{% url 'settings:department-create' %}">add department</a>
+{% for department in departments %}
+    <div>
+        <p>{{department.department}}</p>
+        <a href="{% url 'settings:department-edit' department.id %}">edit</a>
+        <a href="{% url 'settings:department-delete' department.id %}">delete</a>
+    </div>
+{% endfor %}
+

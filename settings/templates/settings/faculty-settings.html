@@ -1,0 +1,10 @@
+<h1>Faculty Settings</h1>
+<a href="{% url 'settings:faculty-create' %}">add faculty</a>
+{% for faculty in faculties %}
+    <div><a href=""></a></div>
+    <div>
+        <p>{{faculty.faculty_name}}</p>
+        <a href="{% url 'settings:faculty-edit' faculty.id %}">edit</a>
+        <a href="{% url 'settings:faculty-delete' faculty.id %}">delete</a>
+    </div>
+{% endfor %}

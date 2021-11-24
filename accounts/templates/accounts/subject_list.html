@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- {% load bootstrap4 %} -->
+
+
+{% block body %}
+
+
+
+{% if request.user.is_authenticated %}
+<h1>Hello {{request.user}} !!! these are your subjects ....</h1>
+{% endif %}
+
+<!-- search form -->
+<div class="container search-container">
+    <form method="GET" class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search-area">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>
+</div>
+
+<!-- subject cards -->
+<div class="container cards-container">
+    <div class="row">
+        {% for subject in subjects %}
+        <div class="col-sm-4 row-change">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title card-h4-change">{{subject.subject_name}}</h4>
+                    <h5 class="card-h5-change">Dr : <span>{{subject.doctor_name}}</span></h5>
+                    <p class="card-text card-p-change" placeholder="{{subject.description}}">
+                        {{subject.description|safe|truncatewords:5}}</p>
+                    <a href="{% url 'subjects:lectures' subject.id %}" class="btn btn-primary">Details</a>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- pagination -->
+
+
+{% endblock body %}

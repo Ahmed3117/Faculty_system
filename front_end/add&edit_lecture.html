@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>add & eddit lectur</title>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="https://kfs.edu.eg/engineering/index.aspx">
+                <img class="nav_img" src="img/kfs7.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="https://kfs.edu.eg/engineering/">Faculty of
+                            Engineering
+                            of KFS</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <a class="nav-link active" aria-current="page"
+                        href="https://kfs.edu.eg/engineering/index.aspx">Home</a>
+                    <a class="nav-link active" aria-current="page"
+                        href="https://kfs.edu.eg/engineering/index.aspx">About</a>
+                    <button class="btn btn-outline-primary" type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+<!-- add lecture  -->
+<div class="container add-lecture-container"> 
+    <div class="d-block l-change">Add Lecture </div>
+<div class="add-lectur-form">
+    
+    <div class="lecture-form-style">
+        <form>
+            <div class="mb-3">
+                <label class="form-label">lecture name</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">file</label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">video</label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Assignment</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary save-button-change">Save</button>
+        </form>
+    </div>  
+</div>
+
+</div>
+</div>
+
+<script src="js/bootstrap.bundle.min.js">
+
+</script>
+
+</body>
+
+</html>

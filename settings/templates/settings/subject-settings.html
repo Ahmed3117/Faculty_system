@@ -1,0 +1,10 @@
+<h1>Subject Settings</h1>
+<a href="{% url 'settings:subject-create' %}">add subject</a>
+{% for subject in subjects %}
+    <div>
+        <p>{{subject.subject_name}}</p>
+        <a href="{% url 'settings:subject-edit' subject.id %}">edit</a>
+        <a href="{% url 'settings:subject-delete' subject.id %}">delete</a>
+    </div>
+{% endfor %}
+

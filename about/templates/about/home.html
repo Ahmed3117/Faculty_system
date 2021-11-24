@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- {% load bootstrap4 %} -->
+
+
+
+
+{% block body %}
+<div class="container-fluid container-ch">
+    <img class="img-change" src="/media/{{faculty_info.image}}" alt="">
+</div>
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <!-- Left -->
+            <div class="me-5 d-none d-lg-block">
+                <span>Get connected with us on social networks:</span>
+            </div>
+            <!-- Left -->
+
+            <!-- Right -->
+            <div>
+                <a href="{{faculty_info.face_book_link}}" class="me-4 text-reset home-links-decoration">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a href="{{faculty_info.tweeter_link}}" class="me-4 text-reset home-links-decoration">
+                    <i class="bi bi-twitter"></i>
+                </a>
+                <a href="{{faculty_info.google_link}}" class="me-4 text-reset home-links-decoration">
+                    <i class="bi bi-google"></i>
+                </a>
+                <a href="{{faculty_info.insta_link}}" class="me-4 text-reset home-links-decoration">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a href="{{faculty_info.youtube_link}}" class="me-4 text-reset home-links-decoration">
+                    <i class="bi bi-youtube"></i>
+                </a>
+            </div>
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <i class="fas fa-gem me-3"></i>faculty discription
+                        </h6>
+                        <p>
+                            {{faculty_info.description}}
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            departments
+                        </h6>
+                        <p>
+                            <a href="https://kfs.edu.eg/engineering/index_dep.aspx?dep=115"
+                                class="text-reset home-links-decoration">Electrial</a>
+                        </p>
+                        <p>
+                            <a href="https://kfs.edu.eg/engineering/index_dep.aspx?dep=118"
+                                class="text-reset home-links-decoration">Mechanical</a>
+                        </p>
+                        <p>
+                            <a href="https://kfs.edu.eg/engineering/index_dep.aspx?dep=117"
+                                class="text-reset home-links-decoration">architecture</a>
+                        </p>
+                        <p>
+                            <a href="https://kfs.edu.eg/engineering/index_dep.aspx?dep=116" class="text-reset home-links-decoration">civi</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            student help
+                        </h6>
+                        <p>
+                            <a href="http://mis.kfs.edu.eg/newresult/" class="text-reset home-links-decoration">Results</a>
+                        </p>
+                        <p>
+                            <a href="https://kfs.edu.eg/displaytopic.aspx?topic=83645" class="text-reset home-links-decoration">E-mails</a>
+                        </p>
+                        <p>
+                            <a href="https://kfs.edu.eg/centrallibrary/" class="text-reset home-links-decoration">Library</a>
+                        </p>
+                        <p>
+                            <a href="http://ict.kfs.edu.eg/reg_pub/" class="text-reset home-links-decoration">ICCT cources </a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Contact
+                        </h6>
+                        <p><i class="bi bi-house-door-fill"></i> {{faculty_info.place}}</p>
+                        <p>
+                            <i class="bi bi-envelope-fill"></i></i>
+                            {{faculty_info.main_email}}
+                        </p>
+                        <p><i class="bi bi-telephone-fill"></i> {{faculty_info.main_phone}}</p>
+
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2022 Copyright:
+            <a class="text-reset fw-bold" href="">ahmed issa</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    {% endblock body %}

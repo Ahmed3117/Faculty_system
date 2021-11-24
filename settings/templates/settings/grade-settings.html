@@ -1,0 +1,10 @@
+<h1>Grade Settings</h1>
+<a href="{% url 'settings:grade-create' %}">add grade</a>
+{% for grade in grades %}
+    <div>
+        <p>{{grade.grade}}</p>
+        <a href="{% url 'settings:grade-edit' grade.id %}">edit</a>
+        <a href="{% url 'settings:grade-delete' grade.id %}">delete</a>
+    </div>
+{% endfor %}
+

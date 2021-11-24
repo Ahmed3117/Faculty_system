@@ -1,0 +1,9 @@
+<h1>Doctor Settings</h1>
+<a href="{% url 'settings:doctor-create' %}">add doctor</a>
+{% for doctor in doctors %}
+    <div>
+        <p>{{doctor.doctor_name}}</p>
+        <a href="{% url 'settings:doctor-edit' doctor.id %}">edit</a>
+        <a href="{% url 'settings:doctor-delete' doctor.id %}">delete</a>
+    </div>
+{% endfor %}

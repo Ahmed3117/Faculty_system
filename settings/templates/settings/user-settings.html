@@ -1,0 +1,34 @@
+<h1>User Settings</h1>
+<a href="{% url 'settings:user-create' %}">add user</a>
+
+<h1>Admin</h1>
+{% for user in users %}
+    <div>
+        {% if user.is_superuser %}
+        <p>{{user.username}}</p>
+        <a href="">edit</a>
+        {% endif %}
+    </div>
+{% endfor %}
+
+<h1>doctors</h1>
+{% for user in users %}
+    <div>
+        {% if user.is_staff and not user.is_superuser %}
+        <p>{{user.username}}</p>
+        <a href="">edit</a>
+        <a href="">delete</a>
+        {% endif %}
+    </div>
+{% endfor %}
+
+<h1>Students</h1>
+{% for user in users %}
+    <div>
+        {% if not user.is_staff %}
+        <p>{{user.username}}</p>
+        <a href="">edit</a>
+        <a href="">delete</a>
+        {% endif %}
+    </div>
+{% endfor %}

@@ -1,0 +1,7 @@
+<h1>Delete Faculty</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <P>are you sure you need to remove {{faculty}} ?</P>
+    <input type="submit" value="Delete">
+</form>

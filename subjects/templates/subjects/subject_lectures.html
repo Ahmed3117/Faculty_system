@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- {% load bootstrap4 %} -->
+
+{% block body %}
+<!--search form -->
+<div class="container search-container">
+    <form method="GET" class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search-area" value="{{search_input}}">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>
+</div>
+<!-- accordians -->
+<div class="justify-content-center container container-lecture-change">
+    <div class="accordian-footer">
+        <div class="card-header-title font-size-lg text-capitalize font-weight-normal"><i
+                class="bi bi-list-task"></i>&nbsp;Lectures List</div>
+    </div>
+    <div class="accordion" id="accordionExample">
+
+        {% for lecture in lectures %}
+        <div class="accordion-item">
+            <div>
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="falfe" aria-controls="collapseOne">
+                    <span class="span_style">{{lecture.lecture_name}} </span> <span
+                        class="span_date_style">{{lecture.date_added}}</span>
+                </button>
+            </div>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="lecture-border">
+                        <div class="detail-color">Description :</div>
+                        <p class="p-color">
+                            {{lecture.description}}
+                        </p>
+                    </div>
+                    <div class="lecture-border">
+                        <div class="detail-color">File :</div>
+                        <div><a class="lecture-link" href="{{lecture.file.url}}">{{lecture.file}}</a></div>
+                        <div class="download-change"><a class="lecture-link" href="{{lecture.file.url}}"
+                                download>Download</a>
+                        </div>
+                    </div>
+                    <div class="lecture-border">
+                        <div class="detail-color">Video :</div>
+                        <div><a class="lecture-link" href="{{lecture.video}}">{{lecture.video}}</a></div>
+                        <div class="download-change"><a class="lecture-link" href="{{lecture.video}}"
+                                download>Download</a>
+                        </div>
+                    </div>
+                    <div class="lecture-border">
+                        <div class="detail-color">Assignment : <span class="span_date_style"> end at :
+                                {{lecture.assignment_end_time}}</span></div>
+                        <p class="p-color">
+                            {{lecture.assignment_content}}
+                        </p>
+                    </div>
+                    <div class="d-block text-direction-change remove-button-margin">
+                        {% if request.user.is_staff and not request.user.is_superuser %}
+                        <a href="{% url 'subjects:lecture-edit' lecture.id %}" class="btn btn-primary">Edit</a>
+
+                        <a href="{% url 'subjects:lecture-delete' lecture.id %}" class="btn btn-primary">Remove</a>
+                        <a href="#" class="btn btn-primary">show answers</a>
+                        {% endif %}
+                        {% if not request.user.is_staff %}
+                        <a href="#" class="btn btn-primary">Solve Assignment</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div> there is no lectures for this subject yet </div>
+        {% endfor %}
+
+    </div>
+    <!-- add lecture  -->
+
+    {% if request.user.is_staff and not request.user.is_superuser %}
+    <div class="d-block text-direction-change card-footer">
+        <a href="{% url 'subjects:lecture-create' %}" class="btn btn-primary">Add Lecture</a>
+        {% endif %}
+
+
+        {% endblock body %}

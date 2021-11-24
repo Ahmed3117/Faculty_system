@@ -1,0 +1,10 @@
+<h1>Branch Settings</h1>
+
+<a href="{% url 'settings:branch-create' %}">add branch</a>
+{% for branch in branchs %}
+    <div>
+        <p>{{branch.branch}}</p>
+        <a href="{% url 'settings:branch-edit' branch.id %}">edit</a>
+        <a href="{% url 'settings:branch-delete' branch.id %}">delete</a>
+    </div>
+{% endfor %}
