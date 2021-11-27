@@ -1,4 +1,17 @@
-<h1>User Settings</h1>
+{% extends 'base2.html' %}
+{% load static %}
+{% block body %}
+
+
+<div class="container search-container">
+    <form method="GET" class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search-area" value="{{search_input}}">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>
+</div>
+
+
+
 <a href="{% url 'settings:user-create' %}">add user</a>
 
 <h1>Admin</h1>
@@ -6,7 +19,7 @@
     <div>
         {% if user.is_superuser %}
         <p>{{user.username}}</p>
-        <a href="">edit</a>
+        <a href="{% url 'settings:user-edit' user.id %}">edit</a>
         {% endif %}
     </div>
 {% endfor %}
@@ -16,8 +29,8 @@
     <div>
         {% if user.is_staff and not user.is_superuser %}
         <p>{{user.username}}</p>
-        <a href="">edit</a>
-        <a href="">delete</a>
+        <a href="{% url 'settings:user-edit' user.id %}">edit</a>
+        <a href="{% url 'settings:user-delete' user.id %}">delete</a>
         {% endif %}
     </div>
 {% endfor %}
@@ -27,8 +40,9 @@
     <div>
         {% if not user.is_staff %}
         <p>{{user.username}}</p>
-        <a href="">edit</a>
-        <a href="">delete</a>
+        <a href="{% url 'settings:user-edit' user.id %}">edit</a>
+        <a href="{% url 'settings:user-delete' user.id %}">delete</a>
         {% endif %}
     </div>
 {% endfor %}
+{% endblock body %}

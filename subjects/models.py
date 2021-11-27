@@ -47,7 +47,7 @@ class Subject(models.Model):
 class Lecture(models.Model):
     lecture_name = models.CharField(max_length=150)
     date_added = models.DateTimeField(auto_now=True, auto_now_add=False)
-    subject_name = models.ForeignKey(Subject, related_name='subject', on_delete=models.CASCADE)
+    subject_name = models.ForeignKey(Subject, related_name='subject', on_delete=models.CASCADE,null=True,blank=True)
     description = models.TextField(max_length=1000)
     file = models.FileField(upload_to='media/', null=True, blank=True)
     video = models.CharField(max_length=1000, null=True, blank=True)

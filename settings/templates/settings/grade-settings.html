@@ -1,3 +1,6 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block body %}
 <h1>Grade Settings</h1>
 <a href="{% url 'settings:grade-create' %}">add grade</a>
 {% for grade in grades %}
@@ -7,4 +10,4 @@
         <a href="{% url 'settings:grade-delete' grade.id %}">delete</a>
     </div>
 {% endfor %}
-
+{% endblock body %}

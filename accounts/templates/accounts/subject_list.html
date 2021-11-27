@@ -1,15 +1,22 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 {% load static %}
 <!-- {% load bootstrap4 %} -->
 
+{% block profileimage %}
+    <a class="navbar-brand" href="{% url 'accounts:profile-settings' %}">
+        <img class="nav_img" src="/media/{{profile.image}}" alt="" width="40" height="40">
+    </a>
+{% endblock profileimage %}
+
+{% block profilename %}
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page"
+        href="{% url 'accounts:profile-settings' %}">{{profile.user}}</a>
+    </li>
+{% endblock profilename %}
 
 {% block body %}
 
-
-
-{% if request.user.is_authenticated %}
-<h1>Hello {{request.user}} !!! these are your subjects ....</h1>
-{% endif %}
 
 <!-- search form -->
 <div class="container search-container">
@@ -17,6 +24,9 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search-area">
         <button class="btn btn-outline-primary" type="submit">Search</button>
     </form>
+    {% if request.user.is_superuser %}
+    <a href="{% url 'settings:subject-create' %}">add subject</a>
+    {% endif %}
 </div>
 
 <!-- subject cards -->

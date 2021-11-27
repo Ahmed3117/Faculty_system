@@ -1,3 +1,6 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block body %}
 <h1>Doctor Settings</h1>
 <a href="{% url 'settings:doctor-create' %}">add doctor</a>
 {% for doctor in doctors %}
@@ -7,3 +10,4 @@
         <a href="{% url 'settings:doctor-delete' doctor.id %}">delete</a>
     </div>
 {% endfor %}
+{% endblock body %}

@@ -1,3 +1,7 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block body %}
 {% for setting in settings %}
     <div><a href="{{setting}}">{{setting}}</a></div>
 {% endfor %}
+{% endblock body %}
